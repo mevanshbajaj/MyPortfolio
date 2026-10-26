@@ -3,7 +3,7 @@ import { profile } from '../data/profile';
 import { EASE } from '../lib/motion';
 import Button from './Button';
 import HeroBackground from './HeroBackground';
-import HeroTerminal from './HeroTerminal';
+import ApiPlayground from './ApiPlayground';
 import { ArrowRightIcon, DownloadIcon, GitHubIcon, MailIcon } from './Icons';
 
 const container: Variants = {
@@ -41,13 +41,19 @@ export default function Hero() {
           <motion.h1
             id="hero-title"
             variants={item}
-            className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-[4.25rem]"
+            className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-7xl lg:text-[5rem]"
           >
-            <span className="block">Building reliable systems,</span>
-            <span className="block text-accent">one API at a time.</span>
+            {profile.name}
           </motion.h1>
 
-          <motion.p variants={item} className="mt-6 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
+          <motion.p
+            variants={item}
+            className="mt-3 text-2xl font-medium tracking-tight text-accent sm:text-3xl"
+          >
+            {profile.role}
+          </motion.p>
+
+          <motion.p variants={item} className="mt-5 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
             {profile.subheadline}
           </motion.p>
 
@@ -80,7 +86,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <HeroTerminal />
+        <ApiPlayground />
       </div>
     </section>
   );

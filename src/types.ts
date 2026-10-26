@@ -67,3 +67,9 @@ export interface EducationEntry {
   location: string;
   foundations: string[];
 }
+
+export interface CertificateFile {
+  name: string;
+  title: string;
+  url: string;
+}

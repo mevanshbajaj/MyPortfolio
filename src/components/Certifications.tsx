@@ -1,4 +1,5 @@
 import { certifications } from '../data/education';
+import CertificateLibrary from './CertificateLibrary';
 import { ArrowUpRightIcon, AwardIcon } from './Icons';
 import Reveal from './Reveal';
 import Section from './Section';
@@ -39,6 +40,7 @@ export default function Certifications() {
           </li>
         ))}
       </ul>
+      <CertificateLibrary />
     </Section>
   );
 }

@@ -6,14 +6,11 @@ export const profile = {
   subheadline:
     'Final-year Computer Science student focused on backend engineering, scalable APIs, and full-stack applications.',
   email: 'mevanshbajaj@gmail.com',
-  phoneLabel: '+91 91503 00050',
   location: 'Punjab, India',
   resume: `${import.meta.env.BASE_URL}Vansh-Bajaj-Resume.pdf`,
   resumeFileName: 'Vansh-Bajaj-Resume.pdf',
   github: 'https://github.com/mevanshbajaj/',
   linkedin: 'https://linkedin.com/in/vanshbajajj/',
-  phone: '+91-9150300050',
-  phoneHref: 'tel:+919150300050',
   resumeUrl: './Vansh-Bajaj-Resume.pdf',
   achievements: [
     'Solved 400+ LeetCode problems across arrays, strings, trees, graphs and dynamic programming.',

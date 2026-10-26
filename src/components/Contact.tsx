@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { profile } from '../data/profile';
 import Button from './Button';
-import { ArrowUpRightIcon, CheckIcon, CopyIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from './Icons';
+import { ArrowUpRightIcon, CheckIcon, CopyIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
 import Reveal from './Reveal';
 
 const cardClass =
@@ -66,7 +66,7 @@ export default function Contact() {
                 </span>
               </div>
 
-              <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <ul className="mt-10 grid gap-3 md:grid-cols-3">
                 <li>
                   <a href={`mailto:${profile.email}`} className={cardClass}>
                     <span className="flex min-w-0 items-center gap-3">
@@ -74,18 +74,6 @@ export default function Contact() {
                       <span className="min-w-0">
                         <span className="block font-mono text-[11px] uppercase tracking-wider text-faint">Email</span>
                         <span className="block break-words text-sm text-ink">{profile.email}</span>
-                      </span>
-                    </span>
-                    <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-faint transition-colors group-hover:text-accent" />
-                  </a>
-                </li>
-                <li>
-                  <a href={profile.phoneHref} className={cardClass}>
-                    <span className="flex min-w-0 items-center gap-3">
-                      <PhoneIcon className="h-5 w-5 shrink-0 text-accent" />
-                      <span className="min-w-0">
-                        <span className="block font-mono text-[11px] uppercase tracking-wider text-faint">Phone</span>
-                        <span className="block break-words text-sm text-ink">{profile.phone}</span>
                       </span>
                     </span>
                     <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-faint transition-colors group-hover:text-accent" />
