@@ -24,6 +24,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              <a href={profile.resumeUrl} download className={link}>
+                Resume
+              </a>
+            </li>
+            <li>
               <a href={`mailto:${profile.email}`} className={link}>
                 Email
               </a>

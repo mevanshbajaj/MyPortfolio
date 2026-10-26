@@ -92,3 +92,35 @@ export function AwardIcon({ className = 'h-5 w-5', ...rest }: IconProps) {
     </svg>
   );
 }
+
+export function DownloadIcon({ className = 'h-4 w-4', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true" {...rest}>
+      <path d="M12 3v12m0 0-4-4m4 4 4-4M4 20h16" />
+    </svg>
+  );
+}
+
+export function PhoneIcon({ className = 'h-5 w-5', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true" {...rest}>
+      <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
+    </svg>
+  );
+}
+
+export function ChevronUpIcon({ className = 'h-5 w-5', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <path d="m6 15 6-6 6 6" />
+    </svg>
+  );
+}
+
+export function CodeIcon({ className = 'h-4 w-4', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+    </svg>
+  );
+}

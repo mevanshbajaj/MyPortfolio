@@ -4,6 +4,8 @@ export const leetcode = {
   solved: 400,
   suffix: '+',
   label: 'LeetCode Problems',
+  username: 'VanshBajaj94',
+  url: 'https://leetcode.com/u/VanshBajaj94/',
 };
 
 export const topics: Topic[] = [

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { navItems, profile } from '../data/profile';
-import { CloseIcon, GitHubIcon, LinkedInIcon, MenuIcon } from './Icons';
+import { CloseIcon, GitHubIcon, LinkedInIcon, MenuIcon, DownloadIcon } from './Icons';
 
 interface NavbarProps {
   activeId: string;
@@ -109,6 +109,14 @@ export default function Navbar({ activeId }: NavbarProps) {
             className={iconLink}
           >
             <LinkedInIcon />
+          </a>
+          <a
+            href={profile.resumeUrl}
+            download
+            className="ml-3 inline-flex items-center gap-1.5 rounded-md border border-line-strong px-3 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-accent/50 hover:text-accent"
+          >
+            <DownloadIcon className="h-3.5 w-3.5" />
+            Resume
           </a>
         </nav>
 

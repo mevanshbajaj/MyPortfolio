@@ -11,6 +11,7 @@ interface ButtonProps {
   icon?: ReactNode;
   className?: string;
   ariaLabel?: string;
+  download?: boolean;
 }
 
 const base =
@@ -31,6 +32,7 @@ export default function Button({
   icon,
   className = '',
   ariaLabel,
+  download = false,
 }: ButtonProps) {
   const classes = `${base} ${variants[variant]} ${className}`;
 
@@ -40,6 +42,7 @@ export default function Button({
         href={href}
         className={classes}
         aria-label={ariaLabel}
+        {...(download ? { download: true } : {})}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         onClick={onClick}
       >

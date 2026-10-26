@@ -54,6 +54,8 @@ export interface Certification {
   id: string;
   title: string;
   area: string;
+  /** Link to the certificate (GitHub, from the resume). */
+  url: string;
 }
 
 export interface EducationEntry {

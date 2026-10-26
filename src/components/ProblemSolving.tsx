@@ -1,43 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { animate, useInView, useReducedMotion } from 'framer-motion';
+import { useMemo, useRef } from 'react';
+import { useInView } from 'framer-motion';
 import { leetcode, topics } from '../data/problemSolving';
+import Button from './Button';
+import CountUp from './CountUp';
+import { ArrowUpRightIcon, CodeIcon } from './Icons';
 import ProblemViz from './ProblemViz';
 import Reveal from './Reveal';
 import Section from './Section';
-
-function CountUp({ to, suffix = '' }: { to: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const reduce = useReducedMotion();
-  const [value, setValue] = useState(reduce ? to : 0);
-
-  useEffect(() => {
-    if (!inView) return;
-    if (reduce) {
-      setValue(to);
-      return;
-    }
-    const controls = animate(0, to, {
-      duration: 1.4,
-      ease: 'easeOut',
-      onUpdate: (latest) => setValue(Math.round(latest)),
-    });
-    return () => controls.stop();
-  }, [inView, reduce, to]);
-
-  return (
-    <>
-      <span ref={ref} aria-hidden="true">
-        {value}
-        {suffix}
-      </span>
-      <span className="sr-only">
-        {to}
-        {suffix}
-      </span>
-    </>
-  );
-}
 
 /** 20 x 20 grid, one cell per solved problem, lighting up in a diagonal wave. */
 function SolvedGrid() {
@@ -90,6 +59,18 @@ export default function ProblemSolving() {
             <p className="mt-4 max-w-md text-sm leading-relaxed text-faint">
               I'm continuing to improve my problem-solving and system design skills for software engineering roles.
             </p>
+            <div className="mt-7">
+              <Button
+                href={leetcode.url}
+                external
+                variant="secondary"
+                icon={<CodeIcon className="h-4 w-4" />}
+                ariaLabel={`LeetCode profile ${leetcode.username} (opens in a new tab)`}
+              >
+                View LeetCode profile
+                <ArrowUpRightIcon className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
 
           <div className="w-full max-w-sm justify-self-start lg:justify-self-end">

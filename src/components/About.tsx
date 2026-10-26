@@ -59,6 +59,20 @@ export default function About() {
           </div>
         </Reveal>
       </div>
+
+      <Reveal delay={0.1}>
+        <div className="mt-10 rounded-xl border border-line bg-surface p-5 sm:p-6">
+          <h3 className="text-base font-semibold text-ink">Achievements</h3>
+          <ul className="mt-4 grid gap-4 md:grid-cols-3">
+            {profile.achievements.map((achievement) => (
+              <li key={achievement} className="flex items-start gap-3 text-sm leading-relaxed text-mute">
+                <span aria-hidden="true" className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-accent" />
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
     </Section>
   );
 }

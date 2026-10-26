@@ -1,5 +1,5 @@
 import { certifications } from '../data/education';
-import { AwardIcon } from './Icons';
+import { ArrowUpRightIcon, AwardIcon } from './Icons';
 import Reveal from './Reveal';
 import Section from './Section';
 
@@ -16,15 +16,25 @@ export default function Certifications() {
         {certifications.map((cert, index) => (
           <li key={cert.id} className={certSpan(index)}>
             <Reveal delay={Math.min(index * 0.05, 0.2)} className="h-full">
-              <div className="group flex h-full items-start gap-4 rounded-xl border border-line bg-surface p-5 transition duration-200 hover:-translate-y-0.5 hover:border-accent/40">
+              <a
+                href={cert.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex h-full items-start gap-4 rounded-xl border border-line bg-surface p-5 transition duration-200 hover:-translate-y-0.5 hover:border-accent/40"
+              >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-line-strong bg-surface2 text-accent">
                   <AwardIcon className="h-5 w-5" />
                 </span>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h3 className="text-[15px] font-medium leading-snug text-ink">{cert.title}</h3>
                   <p className="mt-1.5 font-mono text-xs text-faint">{cert.area}</p>
+                  <p className="mt-2 font-mono text-xs text-mute transition-colors group-hover:text-accent">
+                    View certificate
+                  </p>
                 </div>
-              </div>
+                <ArrowUpRightIcon className="mt-0.5 h-4 w-4 shrink-0 text-faint transition-colors group-hover:text-accent" />
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
             </Reveal>
           </li>
         ))}

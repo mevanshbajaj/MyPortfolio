@@ -1,11 +1,6 @@
 import type { Project } from '../types';
-import { profile } from './profile';
 
-/**
- * Project repository links.
- * No repository URLs were provided, so every project points to the GitHub
- * profile. Replace `github` on a project with its repository URL when ready.
- */
+/** Repository links are taken from the hyperlinks in the resume PDF. */
 export const projects: Project[] = [
   {
     id: 'studysmartai',
@@ -30,7 +25,7 @@ export const projects: Project[] = [
       'Integrated the Gemini API to generate learning content and practice questions, with PDF/DOCX text extraction and Cloudinary-based document storage.',
     ],
     stack: ['React', 'FastAPI', 'MongoDB', 'Gemini AI'],
-    github: profile.github,
+    github: 'https://github.com/mevanshbajaj/StudySmart-AI',
     visual: {
       kind: 'pipeline',
       title: 'document → practice flow',
@@ -65,7 +60,7 @@ export const projects: Project[] = [
       'Tested the REST APIs with Postman and validated backend workflows to improve reliability.',
     ],
     stack: ['Java', 'Spring Boot', 'PostgreSQL'],
-    github: profile.github,
+    github: 'https://github.com/mevanshbajaj/CarCare',
     visual: {
       kind: 'layers',
       title: 'layered backend',
@@ -101,7 +96,7 @@ export const projects: Project[] = [
       'Built appointment scheduling and doctor availability management, with safeguards against double bookings.',
     ],
     stack: ['React', 'Node.js', 'Express.js', 'MongoDB'],
-    github: profile.github,
+    github: 'https://github.com/mevanshbajaj/mediconnect',
     visual: {
       kind: 'roles',
       title: 'role-based access',

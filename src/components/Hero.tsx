@@ -4,7 +4,7 @@ import { EASE } from '../lib/motion';
 import Button from './Button';
 import HeroBackground from './HeroBackground';
 import HeroTerminal from './HeroTerminal';
-import { ArrowRightIcon, GitHubIcon, MailIcon } from './Icons';
+import { ArrowRightIcon, DownloadIcon, GitHubIcon, MailIcon } from './Icons';
 
 const container: Variants = {
   hidden: {},
@@ -68,7 +68,10 @@ export default function Hero() {
               View Projects
               <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Button>
-            <Button href={profile.github} external variant="secondary" icon={<GitHubIcon className="h-4 w-4" />}>
+            <Button href={profile.resumeUrl} download variant="secondary" icon={<DownloadIcon />}>
+              Download resume
+            </Button>
+            <Button href={profile.github} external variant="ghost" icon={<GitHubIcon className="h-4 w-4" />}>
               GitHub
             </Button>
             <Button href="#contact" variant="ghost" icon={<MailIcon className="h-4 w-4" />}>

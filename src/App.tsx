@@ -1,5 +1,7 @@
 import { MotionConfig } from 'framer-motion';
 import About from './components/About';
+import BackToTop from './components/BackToTop';
+import ScrollProgress from './components/ScrollProgress';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Education from './components/Education';
@@ -8,6 +10,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import ProblemSolving from './components/ProblemSolving';
 import Projects from './components/Projects';
+import Stats from './components/Stats';
 import Skills from './components/Skills';
 import { sectionIds } from './data/profile';
 import { useActiveSection } from './hooks/useActiveSection';
@@ -24,9 +27,11 @@ export default function App() {
       >
         Skip to content
       </a>
+      <ScrollProgress />
       <Navbar activeId={activeId} />
       <main id="main">
         <Hero />
+        <Stats />
         <About />
         <Skills />
         <Projects />
@@ -36,6 +41,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </MotionConfig>
   );
 }
