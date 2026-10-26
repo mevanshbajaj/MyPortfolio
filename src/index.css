@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(61 220 151 / 0.28);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+}
+
+/* ---------- Hero background: static grid + travelling "packets" ---------- */
+.hero-field {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 25%, transparent 78%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.packet {
+  position: absolute;
+  will-change: transform;
+}
+
+.packet-h {
+  left: 0;
+  height: 1px;
+  width: 140px;
+  background: linear-gradient(90deg, transparent, rgb(61 220 151 / 0.9));
+  animation: packet-x linear infinite;
+}
+
+.packet-v {
+  top: 0;
+  width: 1px;
+  height: 140px;
+  background: linear-gradient(180deg, transparent, rgb(61 220 151 / 0.9));
+  animation: packet-y linear infinite;
+}
+
+@keyframes packet-x {
+  from { transform: translateX(-160px); }
+  to { transform: translateX(100vw); }
+}
+
+@keyframes packet-y {
+  from { transform: translateY(-160px); }
+  to { transform: translateY(100vh); }
+}
+
+/* ---------- Solved-problems grid ---------- */
+.solved-cell {
+  animation: cell-in 0.55s ease-out both;
+}
+
+@keyframes cell-in {
+  from { opacity: 0.12; }
+  to { opacity: 0.8; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .packet {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
