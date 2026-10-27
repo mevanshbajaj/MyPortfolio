@@ -46,6 +46,21 @@ export default function Hero() {
             {profile.name}
           </motion.h1>
 
+
+{/*
+  pp
+*/}
+<motion.img
+  variants={item}
+  src="/vansh-bajaj.jpeg"
+  alt="Vansh Bajaj, Backend and Full-Stack Developer"
+  className="mt-6 h-32 w-32 rounded-full border-2 border-line-strong object-cover object-center shadow-lg"
+  width={128}
+  height={128}
+  loading="eager"
+  decoding="async"
+/>
+
           <motion.p
             variants={item}
             className="mt-3 text-2xl font-medium tracking-tight text-accent sm:text-3xl"
