@@ -18,8 +18,11 @@ export default function Section({ id, eyebrow, title, description, children, cla
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <Reveal>
           <header className="mb-10 max-w-2xl sm:mb-14">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">{eyebrow}</p>
-            <h2 id={titleId} className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+              <span aria-hidden="true" className="h-px w-8 bg-gradient-to-r from-accent to-transparent" />
+              {eyebrow}
+            </p>
+            <h2 id={titleId} className="mt-3 bg-gradient-to-b from-heading to-ink/75 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl">
               {title}
             </h2>
             {description && <p className="mt-4 text-base leading-relaxed text-mute sm:text-lg">{description}</p>}

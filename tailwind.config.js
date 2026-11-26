@@ -4,17 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#08090b',
-        surface: '#0d0f12',
-        surface2: '#12151a',
-        line: '#1c2026',
-        'line-strong': '#2b323b',
-        ink: '#e9ecef',
-        mute: '#a1a9b3',
-        faint: '#7d8793',
+        bg: 'rgb(var(--c-bg) / <alpha-value>)',
+        surface: 'rgb(var(--c-surface) / <alpha-value>)',
+        surface2: 'rgb(var(--c-surface2) / <alpha-value>)',
+        line: 'rgb(var(--c-line) / <alpha-value>)',
+        'line-strong': 'rgb(var(--c-line-strong) / <alpha-value>)',
+        ink: 'rgb(var(--c-ink) / <alpha-value>)',
+        heading: 'rgb(var(--c-heading) / <alpha-value>)',
+        mute: 'rgb(var(--c-mute) / <alpha-value>)',
+        faint: 'rgb(var(--c-faint) / <alpha-value>)',
+        danger: 'rgb(var(--c-danger) / <alpha-value>)',
+        amber: 'rgb(var(--c-amber) / <alpha-value>)',
+        'on-accent': 'rgb(var(--c-on-accent) / <alpha-value>)',
         accent: {
-          DEFAULT: '#3ddc97',
-          dim: '#2aa874',
+          DEFAULT: 'rgb(var(--c-accent) / <alpha-value>)',
+          dim: 'rgb(var(--c-accent-dim) / <alpha-value>)',
         },
       },
       fontFamily: {

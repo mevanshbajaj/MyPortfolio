@@ -9,6 +9,7 @@ export const profile = {
   location: 'Punjab, India',
   resume: `${import.meta.env.BASE_URL}Vansh-Bajaj-Resume.pdf`,
   resumeFileName: 'Vansh-Bajaj-Resume.pdf',
+  githubUsername: import.meta.env?.VITE_GITHUB_USERNAME || 'mevanshbajaj',
   github: 'https://github.com/mevanshbajaj/',
   linkedin: 'https://linkedin.com/in/vanshbajajj/',
   resumeUrl: './Vansh-Bajaj-Resume.pdf',
@@ -19,6 +20,13 @@ export const profile = {
   ],
   githubLabel: 'github.com/mevanshbajaj',
   linkedinLabel: 'linkedin.com/in/vanshbajajj',
+  /** Phrases for the rotating hero line. All drawn from the projects and resume. */
+  buildingPhrases: [
+    'REST APIs with Spring Boot and Node.js',
+    'authentication and role-based access',
+    'full-stack apps with React',
+    'layered, maintainable backends',
+  ],
   heroStack: ['Java', 'Spring Boot', 'Node.js', 'React', 'PostgreSQL'],
   focusAreas: [
     'Backend development',
@@ -35,20 +43,25 @@ export const navItems: NavItem[] = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'github', label: 'GitHub' },
   { id: 'problem-solving', label: 'DSA' },
-  { id: 'education', label: 'Education' },
-  { id: 'certifications', label: 'Certifications' },
+  { id: 'education', label: 'Journey' },
+  { id: 'certifications', label: 'Certificates' },
   { id: 'contact', label: 'Contact' },
 ];
 
-/** Every section id on the page, in order (used for scroll-spy). */
+/** Every section id on the page, in order (used for scroll-spy and the command palette). */
 export const sectionIds = [
   'top',
   'about',
   'skills',
   'projects',
+  'github',
   'problem-solving',
+  'system-design',
   'education',
   'certifications',
+  'terminal',
+  'assistant',
   'contact',
 ];

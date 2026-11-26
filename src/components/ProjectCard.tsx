@@ -21,7 +21,7 @@ export default function ProjectCard({ project, index, onOpen }: ProjectCardProps
         whileHover={{ y: -4 }}
         transition={{ duration: 0.2 }}
         onClick={onOpen}
-        className="group relative cursor-pointer overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-200 hover:border-accent/40"
+        className="spotlight group relative cursor-pointer overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-200 hover:border-accent/40"
       >
         <div
           aria-hidden="true"

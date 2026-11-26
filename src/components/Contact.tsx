@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { profile } from '../data/profile';
 import Button from './Button';
+import ContactForm from './ContactForm';
 import { ArrowUpRightIcon, CheckIcon, CopyIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
 import Reveal from './Reveal';
 
 const cardClass =
-  'group flex items-center justify-between gap-4 rounded-xl border border-line bg-surface2/60 p-4 transition duration-200 hover:-translate-y-0.5 hover:border-accent/40';
+  'spotlight group flex items-center justify-between gap-4 rounded-xl border border-line bg-surface2/60 p-4 transition duration-200 hover:-translate-y-0.5 hover:border-accent/40';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -35,7 +36,7 @@ export default function Contact() {
             />
 
             <div className="relative">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">07 / contact</p>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">10 / contact</p>
               <h2
                 id="contact-title"
                 className="mt-4 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl"
@@ -64,6 +65,16 @@ export default function Contact() {
                 <span className="sr-only" role="status" aria-live="polite">
                   {copied ? 'Email address copied to clipboard' : ''}
                 </span>
+              </div>
+
+              <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
+                <div>
+                  <h3 className="text-xl font-semibold tracking-tight text-ink">Send me a message</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-mute">
+                    Tell me about the role or project. I read every message and reply by email.
+                  </p>
+                </div>
+                <ContactForm />
               </div>
 
               <ul className="mt-10 grid gap-3 md:grid-cols-3">

@@ -29,6 +29,29 @@ export type ProjectVisual =
       footer: string;
     };
 
+export interface ArchitectureNode {
+  id: string;
+  label: string;
+  /** One-line role shown on the node. */
+  note: string;
+  /** Longer explanation shown when the node is selected. */
+  detail: string;
+}
+
+export interface ProjectCaseStudy {
+  problem: string;
+  solution: string;
+  /** Ordered components of the system, rendered as an interactive diagram. */
+  architecture: ArchitectureNode[];
+  dataModel: { store: string; entities: string[]; note: string };
+  decisions: { title: string; detail: string }[];
+}
+
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+}
+
 export interface Project {
   id: string;
   name: string;
@@ -41,6 +64,11 @@ export interface Project {
   details: string[];
   stack: string[];
   github: string;
+  /** Optional deployed URL. The demo button only renders when this is set. */
+  demo?: string;
+  /** Optional screenshots (files in /public). The gallery only renders when this is set. */
+  screenshots?: ProjectScreenshot[];
+  caseStudy: ProjectCaseStudy;
   visual: ProjectVisual;
 }
 
@@ -54,6 +82,7 @@ export interface Certification {
   id: string;
   title: string;
   area: string;
+  issuer?: string;
   /** Link to the certificate (GitHub, from the resume). */
   url: string;
 }
@@ -72,4 +101,19 @@ export interface CertificateFile {
   name: string;
   title: string;
   url: string;
+  /** Topic derived from the certificate title (for filtering). */
+  topic: string;
+  /** Only set when the certificate title itself names the issuer. */
+  issuer?: string;
+}
+
+export interface TimelineEntry {
+  id: string;
+  kind: 'education' | 'achievement' | 'certification';
+  title: string;
+  subtitle?: string;
+  /** Only set when a real date is known. */
+  period?: string;
+  points: string[];
+  link?: { label: string; href: string };
 }

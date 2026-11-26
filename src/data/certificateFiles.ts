@@ -1,3 +1,4 @@
+import { issuerFor, topicFor } from '../lib/certificates';
 import type { CertificateFile } from '../types';
 
 export const certificateRepo = {
@@ -10,9 +11,12 @@ export const certificateRepo = {
 
 /** Turn a file name like "Data Manipulations in sql.pdf" into a display title. */
 export function fileToCertificate(name: string, url?: string): CertificateFile {
+  const title = name.replace(/\.(pdf|png|jpe?g)$/i, '').replace(/[_]+/g, ' ').trim();
   return {
     name,
-    title: name.replace(/\.(pdf|png|jpe?g)$/i, '').replace(/[_]+/g, ' ').trim(),
+    title,
+    topic: topicFor(title),
+    issuer: issuerFor(title),
     url: url ?? `${certificateRepo.url}/blob/${certificateRepo.branch}/${encodeURIComponent(name)}`,
   };
 }

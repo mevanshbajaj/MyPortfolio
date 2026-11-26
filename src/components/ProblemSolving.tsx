@@ -1,9 +1,10 @@
 import { useMemo, useRef } from 'react';
 import { useInView } from 'framer-motion';
-import { leetcode, topics } from '../data/problemSolving';
+import { codingPlatforms, leetcode, topics } from '../data/problemSolving';
 import Button from './Button';
 import CountUp from './CountUp';
-import { ArrowUpRightIcon, CodeIcon } from './Icons';
+import { ArrowUpRightIcon, CodeIcon, GitHubIcon } from './Icons';
+import LeetCodeDifficulty from './LeetCodeDifficulty';
 import ProblemViz from './ProblemViz';
 import Reveal from './Reveal';
 import Section from './Section';
@@ -41,12 +42,12 @@ export default function ProblemSolving() {
   return (
     <Section
       id="problem-solving"
-      eyebrow="04 / problem solving"
+      eyebrow="05 / problem solving"
       title="Engineering fundamentals"
       description="Backend work rewards clear thinking about data, edge cases and complexity. This is where I practise it."
     >
       <Reveal>
-        <div className="grid items-center gap-10 rounded-2xl border border-line bg-surface p-6 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:p-10">
+        <div className="spotlight grid items-center gap-10 rounded-2xl border border-line bg-surface p-6 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:p-10">
           <div>
             <p className="font-mono text-xs uppercase tracking-wider text-faint">{leetcode.label}</p>
             <p className="mt-3 text-7xl font-semibold leading-none tracking-tight text-ink sm:text-8xl">
@@ -59,17 +60,20 @@ export default function ProblemSolving() {
             <p className="mt-4 max-w-md text-sm leading-relaxed text-faint">
               I'm continuing to improve my problem-solving and system design skills for software engineering roles.
             </p>
-            <div className="mt-7">
-              <Button
-                href={leetcode.url}
-                external
-                variant="secondary"
-                icon={<CodeIcon className="h-4 w-4" />}
-                ariaLabel={`LeetCode profile ${leetcode.username} (opens in a new tab)`}
-              >
-                View LeetCode profile
-                <ArrowUpRightIcon className="h-4 w-4" />
-              </Button>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              {codingPlatforms.map((platform) => (
+                <Button
+                  key={platform.id}
+                  href={platform.url}
+                  external
+                  variant="secondary"
+                  icon={platform.id === 'github' ? <GitHubIcon className="h-4 w-4" /> : <CodeIcon className="h-4 w-4" />}
+                  ariaLabel={`${platform.label} profile ${platform.handle} (opens in a new tab)`}
+                >
+                  {platform.label}
+                  <ArrowUpRightIcon className="h-4 w-4" />
+                </Button>
+              ))}
             </div>
           </div>
 
@@ -80,11 +84,13 @@ export default function ProblemSolving() {
         </div>
       </Reveal>
 
+      <LeetCodeDifficulty />
+
       <ul className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-6 lg:grid-cols-5">
         {topics.map((topic, index) => (
           <li key={topic.id} className={topicSpan(index)}>
             <Reveal delay={Math.min(index * 0.05, 0.2)} className="h-full">
-              <div className="group flex h-full flex-col rounded-xl border border-line bg-surface p-4 transition-colors duration-200 hover:border-line-strong sm:p-5">
+              <div className="spotlight group flex h-full flex-col rounded-xl border border-line bg-surface p-4 transition-colors duration-200 hover:border-line-strong sm:p-5">
                 <ProblemViz id={topic.id} />
                 <h3 className="mt-4 text-[15px] font-medium text-ink">{topic.label}</h3>
                 <p className="mt-1 text-[13px] leading-snug text-faint">{topic.blurb}</p>

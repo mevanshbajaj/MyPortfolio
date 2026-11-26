@@ -1,10 +1,12 @@
 import { motion, type Variants } from 'framer-motion';
+import avatar from '../assets/vansh.webp';
 import { profile } from '../data/profile';
 import { EASE } from '../lib/motion';
 import Button from './Button';
 import HeroBackground from './HeroBackground';
 import ApiPlayground from './ApiPlayground';
-import { ArrowRightIcon, DownloadIcon, GitHubIcon, MailIcon } from './Icons';
+import RotatingText from './RotatingText';
+import { ArrowRightIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
 
 const container: Variants = {
   hidden: {},
@@ -27,46 +29,52 @@ export default function Hero() {
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p
-            variants={item}
-            className="inline-flex items-center gap-2.5 rounded-full border border-line-strong bg-surface/80 px-3.5 py-1.5 font-mono text-xs text-mute"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Open to Backend Engineer internships
-          </motion.p>
+          <motion.div variants={item} className="flex flex-wrap items-center gap-4 sm:gap-5">
+            <div className="relative shrink-0">
+              {/* soft accent glow + gradient ring so the photo matches the site's accent colour */}
+              <span
+                aria-hidden="true"
+                className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-accent/60 via-accent/10 to-transparent opacity-80 blur-[10px]"
+              />
+              <img
+                src={avatar}
+                alt="Portrait of Vansh Bajaj"
+                width={560}
+                height={560}
+                fetchPriority="high"
+                decoding="async"
+                className="relative h-20 w-20 rounded-full border-2 border-accent/60 bg-surface2 object-cover object-[50%_30%] shadow-[0_8px_30px_-10px_rgb(0_0_0/0.6)] sm:h-28 sm:w-28"
+              />
+            </div>
+
+            <p className="inline-flex items-center gap-2.5 rounded-full border border-accent/25 bg-accent/[0.06] px-3.5 py-1.5 font-mono text-xs text-ink/90 shadow-[0_0_24px_-8px_rgb(var(--c-accent)/0.5)] backdrop-blur">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              Open to Backend Engineer internships
+            </p>
+          </motion.div>
 
           <motion.h1
             id="hero-title"
             variants={item}
-            className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-7xl lg:text-[5rem]"
+            className="mt-6 bg-gradient-to-b from-heading via-ink to-ink/60 bg-clip-text pb-1 text-5xl font-semibold leading-[1.05] tracking-tight text-transparent sm:text-7xl lg:text-[5rem]"
           >
             {profile.name}
           </motion.h1>
 
 
-{/*
-  pp
-*/}
-<motion.img
-  variants={item}
-  src="/vansh-bajaj.jpeg"
-  alt="Vansh Bajaj, Backend and Full-Stack Developer"
-  className="mt-6 h-32 w-32 rounded-full border-2 border-line-strong object-cover object-center shadow-lg"
-  width={128}
-  height={128}
-  loading="eager"
-  decoding="async"
-/>
-
           <motion.p
             variants={item}
-            className="mt-3 text-2xl font-medium tracking-tight text-accent sm:text-3xl"
+            className="mt-3 bg-gradient-to-r from-accent via-accent to-accent bg-clip-text text-2xl font-medium tracking-tight text-transparent sm:text-3xl"
           >
             {profile.role}
           </motion.p>
+
+          <motion.div variants={item} className="mt-4">
+            <RotatingText phrases={profile.buildingPhrases} className="font-mono text-sm" />
+          </motion.div>
 
           <motion.p variants={item} className="mt-5 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
             {profile.subheadline}
@@ -92,12 +100,17 @@ export default function Hero() {
             <Button href={profile.resumeUrl} download variant="secondary" icon={<DownloadIcon />}>
               Download resume
             </Button>
-            <Button href={profile.github} external variant="ghost" icon={<GitHubIcon className="h-4 w-4" />}>
-              GitHub
-            </Button>
-            <Button href="#contact" variant="ghost" icon={<MailIcon className="h-4 w-4" />}>
-              Contact Me
-            </Button>
+            <div className="flex items-center gap-1">
+              <Button href={profile.github} external variant="ghost" icon={<GitHubIcon className="h-4 w-4" />}>
+                GitHub
+              </Button>
+              <Button href={profile.linkedin} external variant="ghost" icon={<LinkedInIcon className="h-4 w-4" />}>
+                LinkedIn
+              </Button>
+              <Button href="#contact" variant="ghost" icon={<MailIcon className="h-4 w-4" />}>
+                Contact
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
 

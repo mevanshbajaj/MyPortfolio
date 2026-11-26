@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { navItems, profile } from '../data/profile';
-import { CloseIcon, GitHubIcon, LinkedInIcon, MenuIcon, DownloadIcon } from './Icons';
+import { CloseIcon, GitHubIcon, LinkedInIcon, MenuIcon, DownloadIcon, SearchIcon } from './Icons';
+import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {
   activeId: string;
+  onOpenPalette: () => void;
 }
 
 const iconLink =
   'rounded-md p-2 text-mute transition-colors duration-150 hover:bg-surface2 hover:text-ink';
 
-export default function Navbar({ activeId }: NavbarProps) {
+export default function Navbar({ activeId, onOpenPalette }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -92,6 +94,16 @@ export default function Navbar({ activeId }: NavbarProps) {
             })}
           </ul>
           <span aria-hidden="true" className="mx-3 h-5 w-px bg-line-strong" />
+          <button
+            type="button"
+            onClick={onOpenPalette}
+            aria-label="Open command palette (Ctrl or Command + K)"
+            className="hidden items-center gap-2 rounded-md border border-line px-2 py-1.5 text-xs text-faint transition-colors hover:border-line-strong hover:text-ink xl:flex"
+          >
+            <SearchIcon className="h-3.5 w-3.5" />
+            <kbd className="font-mono">Ctrl K</kbd>
+          </button>
+          <ThemeToggle />
           <a
             href={profile.github}
             target="_blank"
@@ -121,6 +133,10 @@ export default function Navbar({ activeId }: NavbarProps) {
         </nav>
 
         <div className="flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
+          <button type="button" onClick={onOpenPalette} aria-label="Open command palette" className={iconLink}>
+            <SearchIcon className="h-5 w-5" />
+          </button>
           <a
             href={profile.github}
             target="_blank"

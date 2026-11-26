@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { ALL_TOPICS, certificateTopics, filterCertificates } from '../lib/certificates';
 import { certificateRepo, fallbackCertificates, fileToCertificate } from '../data/certificateFiles';
 import type { CertificateFile } from '../types';
-import { ArrowUpRightIcon, GitHubIcon } from './Icons';
+import CertificateModal from './CertificateModal';
+import { AwardIcon, GitHubIcon, SearchIcon } from './Icons';
 import Reveal from './Reveal';
 
 const CACHE_KEY = 'certificate-files-v1';
@@ -27,6 +30,9 @@ export default function CertificateLibrary() {
   const [files, setFiles] = useState<CertificateFile[]>(fallbackCertificates);
   const [source, setSource] = useState<'loading' | 'live' | 'saved'>('loading');
   const [expanded, setExpanded] = useState(false);
+  const [query, setQuery] = useState('');
+  const [topic, setTopic] = useState(ALL_TOPICS);
+  const [selected, setSelected] = useState<CertificateFile | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -57,8 +63,11 @@ export default function CertificateLibrary() {
     return () => controller.abort();
   }, []);
 
-  const more = useMemo(() => files, [files]);
-  const visible = expanded ? more : more.slice(0, PREVIEW_COUNT);
+  const more = files;
+  const topics = useMemo(() => certificateTopics(files), [files]);
+  const filtered = useMemo(() => filterCertificates(files, query, topic), [files, query, topic]);
+  const filtering = query.trim() !== '' || topic !== ALL_TOPICS;
+  const visible = expanded || filtering ? filtered : filtered.slice(0, PREVIEW_COUNT);
 
   if (more.length === 0) return null;
 
@@ -87,24 +96,66 @@ export default function CertificateLibrary() {
           </a>
         </div>
 
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((file) => (
-            <li key={file.name}>
-              <a
-                href={file.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-full items-center justify-between gap-3 rounded-lg border border-line bg-surface px-4 py-3 text-sm text-ink transition duration-200 hover:border-accent/40 hover:bg-surface2"
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <label className="relative block sm:w-72">
+            <span className="sr-only">Search certificates</span>
+            <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-faint" />
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search certificates"
+              className="w-full rounded-lg border border-line-strong bg-surface py-2 pl-9 pr-3 text-sm text-ink placeholder:text-faint focus:border-accent/60 focus:outline-none"
+            />
+          </label>
+          <div role="group" aria-label="Filter by topic" className="flex flex-wrap gap-2">
+            {topics.map((t) => (
+              <button
+                key={t}
+                type="button"
+                aria-pressed={topic === t}
+                onClick={() => setTopic(t)}
+                className={`rounded-full border px-3 py-1 text-xs transition-colors ${
+                  topic === t ? 'border-accent/60 bg-accent/10 text-ink' : 'border-line text-mute hover:border-line-strong hover:text-ink'
+                }`}
               >
-                <span className="min-w-0 leading-snug">{file.title}</span>
-                <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-faint transition-colors group-hover:text-accent" />
-                <span className="sr-only">(opens in a new tab)</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+                {t}
+              </button>
+            ))}
+          </div>
+        </div>
 
-        {more.length > PREVIEW_COUNT && (
+        <p role="status" aria-live="polite" className="mt-3 text-xs text-faint">
+          {filtering ? `${filtered.length} of ${more.length} certificates match.` : ''}
+        </p>
+
+        {visible.length === 0 ? (
+          <p className="mt-3 rounded-lg border border-line bg-surface px-4 py-6 text-center text-sm text-mute">No certificates match your search.</p>
+        ) : (
+          <ul className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {visible.map((file) => (
+              <li key={file.name}>
+                <button
+                  type="button"
+                  onClick={() => setSelected(file)}
+                  aria-haspopup="dialog"
+                  className="spotlight group flex h-full w-full items-start gap-3 rounded-lg border border-line bg-surface px-4 py-3 text-left transition duration-200 hover:-translate-y-0.5 hover:border-accent/40"
+                >
+                  <AwardIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <span className="min-w-0">
+                    <span className="block text-sm leading-snug text-ink">{file.title}</span>
+                    <span className="mt-1 block font-mono text-[11px] text-faint">
+                      {file.issuer ? `${file.issuer} · ` : ''}
+                      {file.topic}
+                    </span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {!filtering && filtered.length > PREVIEW_COUNT && (
           <button
             type="button"
             aria-expanded={expanded}
@@ -114,6 +165,8 @@ export default function CertificateLibrary() {
             {expanded ? 'Show fewer' : `Show all ${more.length}`}
           </button>
         )}
+
+        <AnimatePresence>{selected && <CertificateModal key={selected.name} file={selected} onClose={() => setSelected(null)} />}</AnimatePresence>
       </div>
     </Reveal>
   );
