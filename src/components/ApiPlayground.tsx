@@ -64,7 +64,7 @@ function Line({ text }: { text: string }) {
           <span className="text-faint">: </span>
         </>
       )}
-      <span className={isString ? 'text-accent' : isNumber ? 'text-[#e6b450]' : 'text-faint'}>{rest}</span>
+      <span className={isString ? 'text-accent' : isNumber ? 'text-amber' : 'text-faint'}>{rest}</span>
     </>
   );
 }
@@ -112,7 +112,7 @@ export default function ApiPlayground() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.35, duration: 0.6, ease: EASE }}
-      className="w-full max-w-md justify-self-center overflow-hidden rounded-xl border border-line-strong bg-surface/90 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)] lg:justify-self-end"
+      className="spotlight w-full max-w-md justify-self-center overflow-hidden rounded-xl border border-line-strong bg-surface/70 backdrop-blur-xl shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)] lg:justify-self-end"
     >
       <div className="border-b border-line p-3">
         <p className="mb-2 px-1 text-xs text-faint">Choose an endpoint to send a request</p>

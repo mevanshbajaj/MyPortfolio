@@ -1,6 +1,30 @@
 import { profile } from '../data/profile';
 import Reveal from './Reveal';
 import Section from './Section';
+import SkillIcon from './SkillIcon';
+
+const principles: { title: string; body: string; icon: string }[] = [
+  {
+    title: 'Backend focus',
+    icon: 'backend',
+    body: 'I am happiest on the parts of an application users never see: the APIs, the data model and the auth flow.',
+  },
+  {
+    title: 'Engineering philosophy',
+    icon: 'core',
+    body: 'Clean boundaries between controllers, services and repositories make a system easier to test, debug and grow.',
+  },
+  {
+    title: 'Problem-solving mindset',
+    icon: 'languages',
+    body: 'I reason about data structures and complexity before writing code, and keep it sharp with 400+ LeetCode problems.',
+  },
+  {
+    title: 'Where I am headed',
+    icon: 'frameworks',
+    body: 'A backend engineering internship where I can contribute to real, scalable systems and keep learning from them.',
+  },
+];
 
 const facts: { term: string; value: string }[] = [
   { term: 'Focus', value: 'Backend engineering and APIs' },
@@ -34,7 +58,7 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="rounded-xl border border-line bg-surface p-5 sm:p-6">
+          <div className="spotlight rounded-xl border border-line bg-surface p-5 sm:p-6">
             <h3 className="font-mono text-xs uppercase tracking-wider text-faint">At a glance</h3>
             <dl className="mt-3 divide-y divide-line">
               {facts.map((fact) => (
@@ -60,8 +84,24 @@ export default function About() {
         </Reveal>
       </div>
 
+      <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {principles.map((item, index) => (
+          <li key={item.title}>
+            <Reveal delay={Math.min(index * 0.05, 0.2)} className="h-full">
+              <div className="spotlight h-full rounded-xl border border-line bg-surface p-5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-line-strong bg-surface2 text-accent">
+                  <SkillIcon id={item.icon} className="h-[18px] w-[18px]" />
+                </span>
+                <h3 className="mt-4 text-[15px] font-semibold text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mute">{item.body}</p>
+              </div>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
+
       <Reveal delay={0.1}>
-        <div className="mt-10 rounded-xl border border-line bg-surface p-5 sm:p-6">
+        <div className="mt-4 rounded-xl border border-line bg-surface p-5 sm:p-6">
           <h3 className="text-base font-semibold text-ink">Achievements</h3>
           <ul className="mt-4 grid gap-4 md:grid-cols-3">
             {profile.achievements.map((achievement) => (

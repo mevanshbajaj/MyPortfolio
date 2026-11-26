@@ -124,3 +124,73 @@ export function CodeIcon({ className = 'h-4 w-4', ...rest }: IconProps) {
     </svg>
   );
 }
+
+export function SunIcon({ className = 'h-5 w-5', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+    </svg>
+  );
+}
+
+export function MoonIcon({ className = 'h-5 w-5', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z" />
+    </svg>
+  );
+}
+
+export function SearchIcon({ className = 'h-4 w-4', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </svg>
+  );
+}
+
+export function TerminalIcon({ className = 'h-4 w-4', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="m7 10 3 2-3 2M13 15h4" />
+    </svg>
+  );
+}
+
+export function SendIcon({ className = 'h-4 w-4', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <path d="M22 2 11 13M22 2l-7 20-4-9-9-4z" />
+    </svg>
+  );
+}
+
+export function StarIcon({ className = 'h-3.5 w-3.5', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.2 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z" />
+    </svg>
+  );
+}
+
+export function ForkIcon({ className = 'h-3.5 w-3.5', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <circle cx="6" cy="5" r="2" />
+      <circle cx="18" cy="5" r="2" />
+      <circle cx="12" cy="19" r="2" />
+      <path d="M6 7v2a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V7M12 12v5" />
+    </svg>
+  );
+}
+
+export function SparkIcon({ className = 'h-4 w-4', ...rest }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...stroke} {...rest}>
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" />
+    </svg>
+  );
+}

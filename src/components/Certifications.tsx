@@ -12,7 +12,7 @@ function certSpan(index: number): string {
 
 export default function Certifications() {
   return (
-    <Section id="certifications" eyebrow="06 / certifications" title="Certifications">
+    <Section id="certifications" eyebrow="08 / certifications" title="Certifications">
       <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">
         {certifications.map((cert, index) => (
           <li key={cert.id} className={certSpan(index)}>
@@ -21,14 +21,17 @@ export default function Certifications() {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full items-start gap-4 rounded-xl border border-line bg-surface p-5 transition duration-200 hover:-translate-y-0.5 hover:border-accent/40"
+                className="spotlight group flex h-full items-start gap-4 rounded-xl border border-line bg-surface p-5 transition duration-200 hover:-translate-y-0.5 hover:border-accent/40"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-line-strong bg-surface2 text-accent">
                   <AwardIcon className="h-5 w-5" />
                 </span>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-[15px] font-medium leading-snug text-ink">{cert.title}</h3>
-                  <p className="mt-1.5 font-mono text-xs text-faint">{cert.area}</p>
+                  <p className="mt-1.5 font-mono text-xs text-faint">
+                    {cert.issuer ? `${cert.issuer} · ` : ''}
+                    {cert.area}
+                  </p>
                   <p className="mt-2 font-mono text-xs text-mute transition-colors group-hover:text-accent">
                     View certificate
                   </p>

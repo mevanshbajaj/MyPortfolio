@@ -18,7 +18,7 @@ const base =
   'group inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0';
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-accent text-bg hover:bg-[#5ee8ab]',
+  primary: 'bg-accent text-on-accent hover:bg-accent/90',
   secondary: 'border border-line-strong bg-surface text-ink hover:border-accent/50 hover:bg-surface2',
   ghost: 'text-mute hover:text-ink',
 };

@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#08090b" />
+    <script>
+      /* Apply the saved/preferred theme before first paint to avoid a flash. */
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
 
     <title>Vansh Bajaj | Backend & Full-Stack Developer (Java, Spring Boot, React)</title>
     <meta
@@ -45,7 +55,6 @@
           "name": "Vansh Bajaj",
           "alternateName": ["Vansh Bajaj developer", "mevanshbajaj", "vanshbajajj"],
           "url": "https://www.vanshbajaj.me/",
-          "image": "https://www.vanshbajaj.me/vansh-bajaj.jpeg",
           "jobTitle": "Backend / Full-Stack Developer",
           "description": "Final-year Computer Science student focused on backend engineering, scalable APIs, and full-stack applications.",
           "email": "mailto:mevanshbajaj@gmail.com",
