@@ -132,7 +132,7 @@ export default function CertificateLibrary() {
         {visible.length === 0 ? (
           <p className="mt-3 rounded-lg border border-line bg-surface px-4 py-6 text-center text-sm text-mute">No certificates match your search.</p>
         ) : (
-          <ul className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((file) => (
               <li key={file.name}>
                 <button

@@ -36,7 +36,7 @@ const facts: { term: string; value: string }[] = [
 export default function About() {
   return (
     <Section id="about" eyebrow="01 / about" title="Backend first, full-stack when it counts">
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-14">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-14">
         <Reveal className="space-y-5 text-base leading-[1.75] text-mute sm:text-[17px]">
           <p>
             I'm a final-year Computer Science student at Chitkara University, and I'm happiest working on the parts of
@@ -84,7 +84,7 @@ export default function About() {
         </Reveal>
       </div>
 
-      <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {principles.map((item, index) => (
           <li key={item.title}>
             <Reveal delay={Math.min(index * 0.05, 0.2)} className="h-full">
@@ -103,7 +103,7 @@ export default function About() {
       <Reveal delay={0.1}>
         <div className="mt-4 rounded-xl border border-line bg-surface p-5 sm:p-6">
           <h3 className="text-base font-semibold text-ink">Achievements</h3>
-          <ul className="mt-4 grid gap-4 md:grid-cols-3">
+          <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
             {profile.achievements.map((achievement) => (
               <li key={achievement} className="flex items-start gap-3 text-sm leading-relaxed text-mute">
                 <span aria-hidden="true" className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-accent" />

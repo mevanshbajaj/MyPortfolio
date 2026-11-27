@@ -76,7 +76,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate aria-label="Contact form" className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-name" className="text-sm font-medium text-ink">
             Name

@@ -45,6 +45,9 @@
   }
 
   html {
+    /* Safety net: nothing should ever make the page scroll sideways on a phone. */
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
   }

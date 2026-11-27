@@ -13,7 +13,7 @@ function certSpan(index: number): string {
 export default function Certifications() {
   return (
     <Section id="certifications" eyebrow="08 / certifications" title="Certifications">
-      <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-6">
         {certifications.map((cert, index) => (
           <li key={cert.id} className={certSpan(index)}>
             <Reveal delay={Math.min(index * 0.05, 0.2)} className="h-full">

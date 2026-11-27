@@ -28,7 +28,7 @@ export default function ProjectCard({ project, index, onOpen }: ProjectCardProps
           className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         />
 
-        <div className="grid lg:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className={`flex flex-col p-6 sm:p-8 lg:p-10 ${reversed ? 'lg:order-2' : ''}`}>
             <div className="flex items-center gap-3 font-mono text-xs">
               <span className="text-accent">{number}</span>
@@ -41,7 +41,7 @@ export default function ProjectCard({ project, index, onOpen }: ProjectCardProps
 
             <p className="mt-5 text-[15px] leading-relaxed text-mute">{project.summary}</p>
 
-            <ul className="mt-6 grid gap-x-6 gap-y-2 sm:grid-cols-2" aria-label="Key technical highlights">
+            <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2" aria-label="Key technical highlights">
               {project.highlights.map((highlight) => (
                 <li key={highlight} className="flex items-start gap-2.5 text-sm text-ink/90">
                   <span aria-hidden="true" className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-[2px] bg-accent" />

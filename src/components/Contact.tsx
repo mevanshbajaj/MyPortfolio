@@ -67,7 +67,7 @@ export default function Contact() {
                 </span>
               </div>
 
-              <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
+              <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
                 <div>
                   <h3 className="text-xl font-semibold tracking-tight text-ink">Send me a message</h3>
                   <p className="mt-2 text-sm leading-relaxed text-mute">
@@ -77,7 +77,7 @@ export default function Contact() {
                 <ContactForm />
               </div>
 
-              <ul className="mt-10 grid gap-3 md:grid-cols-3">
+              <ul className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-3">
                 <li>
                   <a href={`mailto:${profile.email}`} className={cardClass}>
                     <span className="flex min-w-0 items-center gap-3">

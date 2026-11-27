@@ -67,7 +67,7 @@ export default function ProjectModal({ project, number, onClose }: ProjectModalP
       </div>
 
       <div className="overflow-y-auto p-5 sm:p-6">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
           <div>
             <Block title="The problem">
               <p className="text-[15px] leading-relaxed text-mute">{caseStudy.problem}</p>
@@ -120,7 +120,7 @@ export default function ProjectModal({ project, number, onClose }: ProjectModalP
 
         <div className="mt-8">
           <Block title="Engineering decisions">
-            <ul className="grid gap-3 sm:grid-cols-2">
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {caseStudy.decisions.map((decision) => (
                 <li key={decision.title} className="rounded-lg border border-line bg-surface2/50 p-4">
                   <p className="text-sm font-medium text-ink">{decision.title}</p>
@@ -134,7 +134,7 @@ export default function ProjectModal({ project, number, onClose }: ProjectModalP
         {project.screenshots && project.screenshots.length > 0 && (
           <div className="mt-8">
             <Block title="Screenshots">
-              <ul className="grid gap-3 sm:grid-cols-2">
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {project.screenshots.map((shot) => (
                   <li key={shot.src} className="overflow-hidden rounded-lg border border-line">
                     <img src={shot.src} alt={shot.alt} loading="lazy" className="h-auto w-full" />

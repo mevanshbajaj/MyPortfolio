@@ -47,7 +47,7 @@ export default function ProblemSolving() {
       description="Backend work rewards clear thinking about data, edge cases and complexity. This is where I practise it."
     >
       <Reveal>
-        <div className="spotlight grid items-center gap-10 rounded-2xl border border-line bg-surface p-6 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:p-10">
+        <div className="spotlight grid grid-cols-1 items-center gap-10 rounded-2xl border border-line bg-surface p-6 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:p-10">
           <div>
             <p className="font-mono text-xs uppercase tracking-wider text-faint">{leetcode.label}</p>
             <p className="mt-3 text-7xl font-semibold leading-none tracking-tight text-ink sm:text-8xl">

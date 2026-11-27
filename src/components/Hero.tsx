@@ -27,7 +27,7 @@ export default function Hero() {
     >
       <HeroBackground />
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
+      <div className="mx-auto grid grid-cols-1 w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div variants={item} className="flex flex-wrap items-center gap-4 sm:gap-5">
             <div className="relative shrink-0">
@@ -100,7 +100,7 @@ export default function Hero() {
             <Button href={profile.resumeUrl} download variant="secondary" icon={<DownloadIcon />}>
               Download resume
             </Button>
-            <div className="flex items-center gap-1">
+            <div className="flex flex-wrap items-center gap-1">
               <Button href={profile.github} external variant="ghost" icon={<GitHubIcon className="h-4 w-4" />}>
                 GitHub
               </Button>

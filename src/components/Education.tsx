@@ -42,7 +42,7 @@ export default function Education() {
 
                 {entry.kind === 'education' ? (
                   <>
-                    <dl className="mt-5 grid gap-4 border-t border-line pt-5 sm:grid-cols-3">
+                    <dl className="mt-5 grid grid-cols-1 gap-4 border-t border-line pt-5 sm:grid-cols-3">
                       <div>
                         <dt className="font-mono text-xs uppercase tracking-wider text-faint">CGPA</dt>
                         <dd className="mt-1 text-xl font-semibold text-ink">{education.cgpa}</dd>

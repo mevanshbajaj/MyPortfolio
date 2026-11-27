@@ -215,7 +215,7 @@ export default function GitHubActivity() {
       title="Open-source footprint"
       description="Live data from the public GitHub API: repositories, languages and recent activity."
     >
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <Reveal className="h-full">
           <Card title="Profile" className="h-full">
             {profileState.status === 'loading' && <Skeleton className="h-24 w-full" />}
@@ -249,7 +249,7 @@ export default function GitHubActivity() {
 
       <h3 className="mb-4 mt-10 text-xl font-semibold tracking-tight text-ink">Recently updated repositories</h3>
       {reposState.status === 'loading' && (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Loading repositories">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Loading repositories">
           {[0, 1, 2].map((i) => (
             <li key={i}>
               <Skeleton className="h-32 w-full" />
@@ -260,7 +260,7 @@ export default function GitHubActivity() {
       {reposState.status === 'error' && <Unavailable error={reposState.error} />}
       {reposState.status === 'ready' && featured.length === 0 && <p className="text-sm text-mute">No public repositories to show.</p>}
       {featured.length > 0 && (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((repo, i) => (
             <li key={repo.id}>
               <Reveal delay={Math.min(i * 0.05, 0.2)} className="h-full">

@@ -38,7 +38,7 @@ export default function SystemDesign() {
           ))}
         </div>
 
-        <div id="sd-panel" role="tabpanel" aria-labelledby={`sd-tab-${active}`} className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div id="sd-panel" role="tabpanel" aria-labelledby={`sd-tab-${active}`} className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           {flow ? (
             <>
               <div>

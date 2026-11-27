@@ -47,7 +47,7 @@ export default function Skills() {
       title="The toolkit"
       description="Technologies I've used across backend, full-stack and cloud work, grouped by what they're for."
     >
-      <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {skillCategories.map((category, index) => (
           <li key={category.id}>
             <Reveal delay={Math.min(index * 0.04, 0.2)} className="h-full">
